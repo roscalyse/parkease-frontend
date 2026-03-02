@@ -7,6 +7,7 @@
   padding: 8px 10px;
   background: #eeeeee;
   color: #042a4a;
+  flex: 0 0 30px;
 }
 .login-logo {
   width: 100px;
@@ -29,7 +30,7 @@
   justify-content: center;
 }
 .login-form {
-  width: 300px;
+  width: 400px;
   border: 1px solid #ccc;
   padding: 30px 40px;
   box-shadow: 2px 2px 5px rgba(23, 22, 22, 0.3);
@@ -53,7 +54,7 @@
 }
 /* Change border color on click/focus */
 .input-grp input:focus {
-  border: 1px solid #fb8515; /* blue border */
+  border: 0.5px solid #fb8515; /* blue border */
   box-shadow: 0 0 5px rgba(4, 42, 74, 0.15);
 }
 .txt-muted {
@@ -303,4 +304,15 @@ hr {
 }
 .footer p {
     font-size: 12px;
+}
+
+/* register files */
+.register-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.register-content .card i {
+  font-size: 14px;
 }
