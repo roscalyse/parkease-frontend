@@ -20,7 +20,180 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <h1>Dasboard</h1>
+  <body class="dash-body">
+    <!-- sidebar -->
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <div class="display-flex">
+          <img
+            src="./assets/parking-logo-transparent.png"
+            alt=""
+            class="dashboard-logo"
+          />
+          <h4><span class="text-yellow">ParkEase</span> Parking</h4>
+        </div>
+        <hr class="bg-yellow" />
+      </header>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item">
+            <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-chart-column"></i> Reports</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-gear"></i> Settings</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h3>ParkEase - <small class="txt-muted">Attendant Dashboard</small></h3>
+      </div>
+      <div class="topbar-right">
+        <!-- Profile / Notifications -->
+         <span class="date">17/March/2026 13:04</span>
+        <a href=""
+          ><i class="fas fa-sign-out text-yellow"></i
+        ></a>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard Sections -->
+      <h4 class="text-blue">Welcome Proscovia!</h4>
+      <section class="dashboard-overview">
+        <!-- Example Cards -->
+        <article class="card">
+          <i class="fas fa-car"></i>
+          <h5>Total Vehicles in parking</h5>
+          <p>150</p>
+        </article>
+        <article class="card">
+          <i class="fas fa-car"></i>
+
+          <h5>Vehicles Checkedin Today</h5>
+          <p>35</p>
+        </article>
+        <article class="card">
+          <i class="fas fa-car"></i>
+          <h5>Vehicles Checkedout Today</h5>
+          <p>35</p>
+        </article>
+        <article class="card">
+          <i class="fas fa-wallet"></i>
+          <h5>Today's Total Revenue</h5>
+          <p><small class="text-yellow">UGX</small> 2,500</p>
+        </article>
+      </section>
+      <section class="quick-actions">
+        <button class="blue-btn shadow">
+          <i class="fas fa-add"></i> Vehicle Checkin
+        </button>
+        <button class="blue-btn-outline shadow">
+          <i class="fas fa-shopping-cart"></i> Vehicle Checkout
+        </button>
+        <button class="blue-btn shadow">
+          <i class="fas fa-print"></i> Print Daily Summary
+        </button>
+      </section>
+
+      <section class="dashboard-reports">
+        <div class="arrival-header">
+          <h3><i class="fas fa-history"></i> Recent Parking Arrivals</h3>
+          <a href="" class="blue-btn-outline btn-small shadow"
+            >View all Activity</a
+          >
+        </div>
+
+        <table class="dashboard-table">
+          <thead>
+            <tr class="bg-blue">
+              <th>SN</th>
+              <th>Time</th>
+              <th>Plate Number</th>
+              <th>Vehicle Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center-align">1</td>
+              <td>08:15 AM</td>
+              <td>UBD 123A</td>
+              <td>Sedan</td>
+              <td class="center-align">Parked</td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="center-align">2</td>
+              <td>09:02 AM</td>
+              <td>UAZ 456B</td>
+              <td>SUV</td>
+              <td class="center-align">Exited</td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="center-align">3</td>
+              <td>10:30 AM</td>
+              <td>UAT 789C</td>
+              <td>Truck</td>
+              <td class="center-align">Parked</td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="center-align">4</td>
+              <td>11:45 AM</td>
+              <td>UBA 321D</td>
+              <td>Motorcycle</td>
+              <td class="center-align">Exited</td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="center-align">5</td>
+              <td>01:10 PM</td>
+              <td>UBG 654E</td>
+              <td>Van</td>
+              <td class="center-align">Parked</td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
+        <p><i>Designed By: Namukasa Proscovia</i></p>
+      </div>
+    </footer>
   </body>
 </html>

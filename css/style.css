@@ -1,5 +1,6 @@
 * {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 /* login page styles */
 .login-icon {
@@ -32,7 +33,6 @@
   border: 1px solid #ccc;
   padding: 30px 40px;
   box-shadow: 2px 2px 5px rgba(23, 22, 22, 0.3);
-
 }
 .form-input {
   padding: 8px 10px;
@@ -49,12 +49,12 @@
 }
 .input-grp input {
   flex: 1;
-  outline: none;        /* remove default focus outline */
+  outline: none; /* remove default focus outline */
 }
 /* Change border color on click/focus */
 .input-grp input:focus {
-    border: 1px solid #fb8515;  /* blue border */
-    box-shadow: 0 0 5px rgba(4,42,74,0.15); /* optional glow effect */
+  border: 1px solid #fb8515; /* blue border */
+  box-shadow: 0 0 5px rgba(4, 42, 74, 0.15);
 }
 .txt-muted {
   color: #042a4a;
@@ -70,7 +70,8 @@
   font-weight: bold;
   color: #fb8515;
   transition: background 0.5s ease;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 .login-btn:hover {
   background: #fb8515;
@@ -98,4 +99,208 @@
   .login-section {
     margin: 50px auto;
   }
+}
+
+/* dashboard styles */
+.dash-body {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr 60px;
+  height: 100vh;
+}
+/* Sidebar spans all rows */
+.sidebar {
+  grid-row: 1 / 4; /* span from row 1 to 4 */
+  background: #042a4a;
+  color: white;
+  padding: 20px;
+  position: fixed; /* Fixes it to viewport */
+  top: 0; /* Start at the top */
+  left: 0;
+  height: 100vh;
+}
+/* Dashboard Topbar */
+.topbar {
+  background: #ccc;
+  grid-column: 2;
+  grid-row: 1;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-right .date {
+    font-size: 12px;
+    margin-right: 30px;
+}
+
+/* Main Content */
+.main-content {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 20px;
+  background: #eeeeee;
+}
+
+/* Footer */
+.footer {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 10px 20px;
+  background: white;
+}
+.dashboard-overview {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.dashboard-overview .card {
+  border: 1px solid #042a4a;
+  color: #042a4a;
+  box-shadow: 2px 3px 5px rgba(4, 42, 74, 0.95);
+  padding: 10px 20px;
+  text-align: center;
+  flex: 0 1 220px;
+  transition: 0.5s ease;
+}
+.dashboard-overview .card:hover {
+  transform: translateY(-3px);
+}
+.dashboard-overview .card p {
+  font-size: 18px;
+  font-weight: bold;
+}
+/* quick action styles */
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.shadow {
+  box-shadow: 2px 3px 5px rgba(4, 42, 74, 0.95);
+}
+.blue-btn-outline {
+  border: 1px solid #042a4a;
+  color: #042a4a;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.blue-btn {
+  background: #042a4a;
+  color: #fb8515;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  transition: 0.5s ease;
+}
+.blue-btn:hover {
+  background: #fb8515;
+  color: #042a4a;
+  transform: scale(1.05);
+}
+.blue-btn-outline:hover {
+  background: #042a4a;
+  color: #fb8515;
+  transform: scale(1.05);
+}
+.yellow-btn {
+  border: 1px solid #fb8515;
+}
+
+/* arrival report activity style */
+.arrival-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+.btn-small {
+  font-size: 12px !important;
+  padding: 8px 10px !important;
+}
+.action-btn {
+  border: none;
+}
+table {
+  border: 1px solid #042a4a;
+  border-collapse: collapse;
+  width: 100%;
+}
+table th,
+td {
+  border: 1px solid rgba(4, 42, 74, 0.25);
+  padding: 10px 12px;
+  color: rgba(4, 42, 74, 0.95);
+}
+/* zebra styling of tbody */
+tbody tr:nth-child(even) {
+  background-color: #f4f6f9;
+}
+
+tbody tr:hover {
+  background-color: #e2e8f0;
+  cursor: pointer;
+}
+.center-align {
+  text-align: center;
+}
+.bg-blue {
+  background: #042a4a;
+}
+.bg-yellow {
+  background-color: #fb8515;
+}
+.bg-blue th {
+  color: white;
+  font-weight: 500;
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sidebar-nav ul li a {
+  color: white;
+}
+.sidebar-nav ul li:hover a {
+  color: #fb8515;
+}
+.display-flex {
+  display: flex;
+  align-items: center;
+}
+.dashboard-logo {
+  width: 70px;
+  height: 70px;
+}
+hr {
+  border: 1px solid #fb8515;
+}
+.card h5 {
+  margin: 0px;
+  margin-top: 10px;
+}
+.card i {
+  font-size: 30px;
+  margin-top: 15px;
+}
+/* footer styles */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer p {
+    font-size: 12px;
 }
