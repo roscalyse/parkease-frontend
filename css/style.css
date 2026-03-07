@@ -319,3 +319,55 @@ hr {
 .register-content .card i {
   font-size: 14px;
 }
+
+/* register page css */
+.form-select {
+  width: 80%;
+  padding: 10px 15px;
+  font-size: 16px; /* Prevents iOS zoom-on-focus */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+.form-select:focus {
+  border: 0.5px solid #fb8515; /* blue border */
+  box-shadow: 0 0 5px rgba(4, 42, 74, 0.15);
+}
+.input-field{
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px; /* Prevents iOS zoom-on-focus */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+}
+.input-field:focus {
+  border: 0.5px solid #fb8515; /* blue border */
+  box-shadow: 0 0 5px rgba(4, 42, 74, 0.15);
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn-sm{
+  width: 40% !important;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.mb-15{
+  margin-bottom: 15px;
+}
+.bordered {
+  border: 0.5px solid #042a4a;
+  padding: 20px;
+  box-shadow: 2px 3px 5px rgba(4, 42, 74, 0.95);
+}
+.text-center{
+  text-align: center;
+}

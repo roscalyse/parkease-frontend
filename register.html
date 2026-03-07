@@ -59,91 +59,92 @@
         <div class="register-content">
 
             <!-- EXISTING CUSTOMER ENTRY -->
-            <div class="card">
-                <h2>Existing Customer Entry</h2>
-                <form>
-                    <div class="form-group">
-                        <label>Customer</label>
-                        <select>
+            <div class="card bordered">
+                <h3 class=" text-blue">Existing Customer Entry</h3>
+                <form id="register-entry">
+                    <div class="form-group mb-15">
+                        <label class=" text-blue"><i class="fas fa-user small-icon"></i> Customer</label>
+                        <select class="form-select" name ="customer">
                             <option>Select Customer</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Vehicle</label>
-                        <select>
+                    <div class="form-group mb-15">
+                        <label class=" text-blue"><i class="fas fa-car small-icon"></i> Vehicle </label>
+                        <select class="form-select" name="vehicle">
                             <option>Select Vehicle</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn-primary">Submit Entry</button>
+                    <button type="submit" class="login-btn btn-sm mt-15">Submit Entry</button>
                 </form>
             </div>
 
             <!-- vehicle checkin preview -->
-            <div class="card">
-                <h2>Vehicle Checkin Preview</h2>
-                    <div class="vehicle-info">
-                        <h5><i class="fas fa-car small-icon"></i> Vehicle Information</h5>
-                        <p>Plate Number: </p>
-                        <p>Vehicle Type:</p>
-                        <p>Model: </p>
-                        <p>Color: </p>
-                    </div>
-                    <div class="Customer info">
-                          <p>Customer: </p>
-                        <p>Phone Number:</p>
-                        <p>NIN: </p>
-                    </div>
+            <div class="card bordered">
+                <h3 class=" text-blue">Vehicle Checkin Preview</h3>
+                <div class="vehicle-info">
+                    <h5 class="text-blue text-center"><i class="fas fa-car small-icon"></i> Vehicle Information</h5>
+                    <p>Plate Number: </p>
+                    <p>Vehicle Type:</p>
+                    <p>Model: </p>
+                    <p>Color: </p>
+                </div>
+                <hr>
+                <div class="Customer info">
+                    <p>Customer: </p>
+                    <p>Phone Number:</p>
+                    <p>NIN: </p>
+                </div>
             </div>
 
 
             <!-- NEW CUSTOMER -->
-            <div class="card">
-                <h2>New Customer</h2>
-                <form>
-                    <div class="form-group">
+            <div class="card bordered">
+                <h3 class="text-blue"><i class="fas fa-user"></i> New Customer </i></h3>
+                <form id="customer-form" class="">
+                    <div class="form-group mb-15">
                         <label>Full Name</label>
-                        <input type="text" placeholder="Enter full name">
+                        <input type="text" class="input-field" placeholder="Enter full name">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-15">
                         <label>Phone Number</label>
-                        <input type="text" placeholder="Enter phone number">
+                        <input type="text" class="input-field" placeholder="Enter phone number">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-15">
                         <label>NIN</label>
-                        <input type="text" placeholder="Enter NIN">
+                        <input type="text" class="input-field" placeholder="Enter NIN">
                     </div>
 
-                    <button type="submit" class="btn-primary">Add Customer</button>
+                    <button type="submit" class="login-btn btn-sm">Add Customer</button>
                 </form>
             </div>
 
 
             <!-- NEW VEHICLE -->
-            <div class="card">
-                <h2>New Vehicle</h2>
-                <form>
-                    <div class="form-group">
-                        <label>Plate Number</label>
-                        <input type="text" placeholder="Enter plate number">
+            <div class="card bordered">
+                <h3 class=" text-blue"><i class="fas fa-car"></i> New Vehicle </h3>
+                <form id="vehicle-form" class="">
+                    <div class="form-group mb-15">
+                        <label class="text-blue">Plate Number</label>
+                        <input type="text" placeholder="Enter plate number" class="input-field" name="plateNumber" id="plateNumber">
                     </div>
 
-                    <div class="form-group">
-                        <label>Model</label>
-                        <input type="text" placeholder="Enter vehicle model">
+                    <div class="form-group mb-15">
+                        <label class="text-blue">Model</label>
+                        <input type="text" class="input-field" name="model" id="model" placeholder="Enter vehicle model">
                     </div>
 
-                    <div class="form-group">
-                        <label>Color</label>
-                        <input type="text" placeholder="Enter vehicle color">
+                    <div class="form-group mb-15">
+                        <label class="text-blue">Color</label>
+                        <input type="text" class="input-field" name="color" id="color" placeholder="Enter vehicle color">
                     </div>
 
-                    <div class="form-group">
-                        <label>Vehicle Type</label>
-                        <select>
+                    <div class="form-group mb-15">
+                        <label class="text-blue">Vehicle Type</label>
+                        <select class="form-select" name="vehicleType" id="vehicleType">
                             <option>Select Type</option>
                             <option>Car</option>
                             <option>Truck</option>
@@ -152,7 +153,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn-primary">Add Vehicle</button>
+                    <button type="submit" class="login-btn btn-sm">Add Vehicle</button>
                 </form>
             </div>
 
