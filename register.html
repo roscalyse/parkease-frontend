@@ -31,21 +31,39 @@
         <nav class="sidebar-nav">
             <ul>
                 <li class="nav-item">
-                    <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                    <a href="./dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./register.html"><i class="fas fa-plus-circle"></i> Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./signout.html"><i class="fas fa-car"></i> Out-Vehicle</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-history"></i> History</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa-solid fa-chart-column"></i> Reports</a>
+                    <a href="./reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-gear"></i> Settings</a>
                 </li>
             </ul>
         </nav>
+        <div class="sideBar-footer display-flex justify-content-center">
+            <div class="image-container">
+                <img src="./assets/kora_profile.jpeg" alt="">
+            </div>
+            <div>
+                <h5 class=" mb-0 mt-0">Jane Laker</h5>
+                <span class="font-smaller italic">Attendant</span>
+            </div>
+        </div>
     </aside>
     <!-- Top Bar -->
     <header class="topbar">
         <div class="topbar-left">
-            <h3>ParkEase - <small class="txt-muted">Vehicle Checkin</small></h3>
+            <h3>ParkEase - <small class="txt-muted text">Vehicle Registration</small></h3>
         </div>
         <div class="topbar-right">
             <!-- Profile / Notifications -->
@@ -54,17 +72,25 @@
         </div>
     </header>
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content relative">
+        <div class="quick-tips">
+            <h4 class="italic bg-blue text-yellow"><i class="fas fa-lightbulb"></i>Quick Tips</h4>
+            <ul>
+                <li>Use Tab to jump between fields</li>
+                <li>NIN is mandatory for all Motocycles</li>
+                <li>Double check plate before printing</li>
+            </ul>
+        </div>
         <!-- Dashboard Sections -->
         <div class="register-content">
 
             <!-- EXISTING CUSTOMER ENTRY -->
             <div class="card bordered">
-                <h3 class=" text-blue">Existing Customer Entry</h3>
+                <h3 class="text-center text-blue">Vehicle Checkin</h3>
                 <form id="register-entry">
                     <div class="form-group mb-15">
                         <label class=" text-blue"><i class="fas fa-user small-icon"></i> Customer</label>
-                        <select class="form-select" name ="customer">
+                        <select class="form-select" name="customer">
                             <option>Select Customer</option>
                         </select>
                     </div>
@@ -75,14 +101,18 @@
                             <option>Select Vehicle</option>
                         </select>
                     </div>
+                    <div class="display-flex justify-content-between mt-15">
+                        <button type="submit" class="blue-btn btn-inlign"><i class="fas fa-print"></i> <span>Register &AMP; Print
+                            Receipt</span></button>
+                        <button type="reset" class="blue-btn-outline">Cancel</button>
+                    </div>
 
-                    <button type="submit" class="login-btn btn-sm mt-15">Submit Entry</button>
                 </form>
             </div>
 
             <!-- vehicle checkin preview -->
             <div class="card bordered">
-                <h3 class=" text-blue">Vehicle Checkin Preview</h3>
+                <h3 class="text-center text-blue">Vehicle Checkin Preview</h3>
                 <div class="vehicle-info">
                     <h5 class="text-blue text-center"><i class="fas fa-car small-icon"></i> Vehicle Information</h5>
                     <p>Plate Number: </p>
@@ -101,20 +131,27 @@
 
             <!-- NEW CUSTOMER -->
             <div class="card bordered">
-                <h3 class="text-blue"><i class="fas fa-user"></i> New Customer </i></h3>
+                <h3 class="text-blue text-center"><i class="fas fa-user"></i> New Customer </i></h3>
                 <form id="customer-form" class="">
                     <div class="form-group mb-15">
                         <label>Full Name</label>
-                        <input type="text" class="input-field" placeholder="Enter full name">
+                        <div class="input-grp">
+                            <span class=" icon-input-grp"><i class="fas fa-user"></i></span>
+                            <input type="text" class="input-field" placeholder="Enter full name as Per ID">
+                        </div>
                     </div>
 
                     <div class="form-group mb-15">
                         <label>Phone Number</label>
-                        <input type="text" class="input-field" placeholder="Enter phone number">
+                        <div class="input-grp">
+                            <span class=" icon-input-grp"><i class="fas fa-phone"></i></span>
+                            <input type="text" class="input-field" placeholder="+256 789328370">
+                        </div>
+
                     </div>
 
                     <div class="form-group mb-15">
-                        <label>NIN</label>
+                        <label>NIN Number <span class="font-sm">(Required for Boda boda)</span></label>
                         <input type="text" class="input-field" placeholder="Enter NIN">
                     </div>
 
@@ -125,21 +162,28 @@
 
             <!-- NEW VEHICLE -->
             <div class="card bordered">
-                <h3 class=" text-blue"><i class="fas fa-car"></i> New Vehicle </h3>
+                <h3 class="text-center text-blue"><i class="fas fa-car"></i> New Vehicle </h3>
                 <form id="vehicle-form" class="">
                     <div class="form-group mb-15">
                         <label class="text-blue">Plate Number</label>
-                        <input type="text" placeholder="Enter plate number" class="input-field" name="plateNumber" id="plateNumber">
+                        <div class="input-grp">
+                            <span class="icon-input-grp text-center justify-content-center display-flex">#</span>
+                            <input type="text" placeholder="E.g UAC 123X" class="input-field" name="plateNumber"
+                                id="plateNumber">
+                        </div>
+
                     </div>
 
                     <div class="form-group mb-15">
                         <label class="text-blue">Model</label>
-                        <input type="text" class="input-field" name="model" id="model" placeholder="Enter vehicle model">
+                        <input type="text" class="input-field" name="model" id="model"
+                            placeholder="Enter vehicle model">
                     </div>
 
                     <div class="form-group mb-15">
                         <label class="text-blue">Color</label>
-                        <input type="text" class="input-field" name="color" id="color" placeholder="Enter vehicle color">
+                        <input type="text" class="input-field" name="color" id="color"
+                            placeholder="Enter vehicle color">
                     </div>
 
                     <div class="form-group mb-15">
@@ -162,8 +206,17 @@
     </main>
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
-        <p><i>Designed By: Namukasa Proscovia</i></p>
+        <div class="footer-grp">
+            <p class="italic">Designed By: Namukasa Proscovia</p>
+
+            <div>
+                <p>System Version: 1.4.0 Build</p>
+            </div>
+            <div>
+                <p>Session Started at: 8:45am</p>
+            </div>
+        </div>
+        <p class="text-center text-blue">&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
         </div>
     </footer>
 </body>
