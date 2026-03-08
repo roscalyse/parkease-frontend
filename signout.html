@@ -55,8 +55,8 @@
                 <img src="./assets/kora_profile.jpeg" alt="">
             </div>
             <div>
-                <h5 class=" mb-0 mt-0">Jane Laker</h5>
-                <span class="font-smaller italic">Attendant</span>
+                <h5 class="mb-0 mt-0" id="user-name">Jane Laker</h5>
+                <span class="font-smaller italic" id="user-role">Attendant</span>
             </div>
         </div>
     </aside>
@@ -88,17 +88,17 @@
             <div class="details">
                 <div class="display-flex">
                     <h4 class="text-blue"><i class="fas fa-car small-icon"></i>Vehicle &amp; Arrival Details</h4>
-                    <span class="badge font-sm">Pending Sign-Out</span>
+                    <span class="badge font-sm" id="badge">Pending Sign-Out</span>
                 </div>
-                <div class="detail-row"><label>Driver Name</label><span>John Baptist Ssemuwemba</span></div>
-                <div class="detail-row"><label>Vehicle Type</label><span>Heavy Truck (T-04)</span></div>
-                <div class="detail-row"><label>Arrival Time</label><span>24 Oct 2023, 08:45 AM</span></div>
-                <div class="detail-row"><label>Duration</label><span>4 Hours 22 Minutes</span></div>
+                <div class="detail-row"><label>Driver Name</label><span></span></div>
+                <div class="detail-row"><label>Vehicle Type</label><span></span></div>
+                <div class="detail-row"><label>Arrival Time</label><span></span></div>
+                <div class="detail-row"><label>Duration</label><span></span></div>
                 <div class="detail-row text-blue light-bg align-items-center">
                     <div>
                         <span>Calculated Parking Fee</span>
-                        <h2>UGX 17,500</h2>
-                        <span>Rate Applied: UGX 4000/hr (Truck)</span>
+                        <h2>UGX 0</h2>
+                        <span>Rate Applied: 00/hr</span>
                     </div>
                     <span><i class="fas fa-credit-card"></i></span>
                 </div>
@@ -133,47 +133,46 @@
                     <table class="font-sm">
                         <tr>
                             <td>Receipt No:</td>
-                            <td>PE-2023-10-2445</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Date:</td>
-                            <td>24 Oct 2023, 01:07 PM</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Plate No:</td>
-                            <td>UAX 123A</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Category:</td>
-                            <td>Heavy Truck</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Check-in:</td>
-                            <td>24 Oct, 08:45 AM</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>Duration:</td>
-                            <td>4.4 hrs @ 4,000/hr</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td><strong>Total:</strong></td>
-                            <td><strong>UGX 17,500</strong></td>
+                            <td><strong>UGX 0</strong></td>
                         </tr>
                     </table>
                     <!-- customer Information -->
                     <div class="customer-info">
                         <div class="receiver-info">
                             <h5 class="text-blue">Receiver Information</h5>
-                            <p><i class="fas fa-user small-icon"></i><span>Jane Namukasa</span></p>
-                            <p><i class="fas fa-phone small-icon"></i> <span>+256 789 456 123</span></p>
-                            <p><i class="fas fa-id-card small-icon"></i> <span>1234567890</span></p>
+                            <p><i class="fas fa-user small-icon"></i><span></span></p>
+                            <p><i class="fas fa-phone small-icon"></i> <span></span></p>
+                            <p><i class="fas fa-id-card small-icon"></i> <span></span></p>
                         </div>
                         <div class="receiver-info">
                             <h5 class="text-blue">Customer Information</h5>
-
-                            <p><i class="fas fa-user small-icon"></i><span>Jane Namukasa</span></p>
-                            <p><i class="fas fa-phone small-icon"></i> <span>+256 789 456 123</span></p>
-                            <p><i class="fas fa-id-card small-icon"></i> <span>1234567890</span></p>
+                            <p><i class="fas fa-user small-icon"></i><span></span></p>
+                            <p><i class="fas fa-phone small-icon"></i> <span></span></p>
+                            <p><i class="fas fa-id-card small-icon"></i> <span></span></p>
                         </div>
                     </div>
                     <p id="prepared_by"> <span>Prepared By: John Doe</span></p>
@@ -203,8 +202,9 @@
         <p class="text-center text-blue">&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
         </div>
     </footer>
+    <script src="./js/auth.js"></script>
+    <script src="./js/validation.js"></script>
     <script src="./js/signout.js"></script>
-    <script src="./js/dashboard.js"></script>
 </body>
 
 </html>

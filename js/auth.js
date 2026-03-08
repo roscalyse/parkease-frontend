@@ -80,3 +80,40 @@ function showError(inputId, message) {
   input.parentNode.insertBefore(err, input.nextSibling);
   input.style.borderColor = 'red';
 }
+
+// function to clear error message when user starts typing
+// document.querySelectorAll('.input-field').forEach(input => {
+//   input.addEventListener('input', () => {
+//     const err = document.getElementById(input.id + ' - error');
+//     if (err) {
+//       err.remove();
+//       input.style.borderColor = '';
+//     }
+// });
+// });
+function clearError(inputId){
+  const existing = document.getElementById(inputId + ' - error');
+  if(existing) existing.remove();
+  document.getElementById(inputId).style.borderColor=''
+
+}
+
+function requireLogin() {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user) {
+        window.location.href = 'index.html';
+    }
+    return true;
+}
+
+// function to sign out user by clearing localStorage and sessionStorage, then redirecting to login page
+
+let signOutBtn = document.getElementById('signout-btn');
+signOutBtn.addEventListener('click', function() {   
+    // Clear user data from localStorage
+    localStorage.removeItem('user');
+    // Clear user data from sessionStorage
+    sessionStorage.removeItem('user');
+    // Redirect to login page
+    window.location.href = 'index.html';
+});
