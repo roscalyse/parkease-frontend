@@ -75,13 +75,13 @@
     </header>
     <!-- Main Content -->
     <main class="main-content">
-                            <div class="upper-header-section">
-                        <h2>Revenue Overview</h2>
-                        <div class="download-btns">
-                            <button class="pdf-btn"><i class="fas fa-download"> </i><span>Download Pdf</span></button>
-                            <button class="csv-btn"><i class="fas fa-download"> </i><span>Export CSV</span></button>
-                        </div>
-                    </div>
+        <div class="upper-header-section">
+            <h2>Revenue Overview</h2>
+            <div class="download-btns">
+                <button class="pdf-btn"><i class="fas fa-download"> </i><span>Download Pdf</span></button>
+                <button class="csv-btn"><i class="fas fa-download"> </i><span>Export CSV</span></button>
+            </div>
+        </div>
         <div class="reports-container">
             <!-- header with title and date selector -->
             <div class="reports-header">
@@ -122,9 +122,13 @@
             <!-- table section -->
             <div class="report-table-section">
                 <div class="table-controls">
-                    <input type="text" class="search-input" placeholder="Search plate or receipt..." />
+                    <div>
+                        <h5 class="text-blue">All Signed-out Vehicles</h5>
+                    </div>
+                    <input type="text" class="search-input" placeholder="Search plate or receipt..." id="searchInput"/>
                 </div>
-                <table class="signed-out">
+
+                <table class="signed-out" id="reportsTable">
                     <thead class="bg-blue">
                         <tr>
                             <th>RECEIPT #</th>
@@ -176,6 +180,14 @@
                             <td>14h 00m</td>
                             <td>$25.00</td>
                         </tr>
+                        <tr>
+                            <td>#PE-98236</td>
+                            <td>KBX 492W</td>
+                            <td>07:00 AM</td>
+                            <td>09:00 PM</td>
+                            <td>14h 00m</td>
+                            <td>$25.00</td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -185,11 +197,11 @@
                     </tfoot>
                 </table>
                 <div class="pagination">
-                    <button class="blue-btn-outline btn-small">Previous</button>
-                    <button class="btn-small bg-blue text-white">1</button>
-                    <button class="btn-small">2</button>
-                    <button class="btn-small">3</button>
-                    <button class="blue-btn-outline btn-small">Next</button>
+                    <button class="blue-btn-outline btn-small" id="prevBtn">Previous</button>
+                    <button class="btn-small bg-blue text-white pageBtn">1</button>
+                    <button class="btn-small pageBtn">2</button>
+                    <button class="btn-small pageBtn">3</button>
+                    <button class="blue-btn-outline btn-small" id="nextBtn">Next</button>
                 </div>
             </div>
         </div>
@@ -209,6 +221,7 @@
         <p class="text-center text-blue">&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
         </div>
     </footer>
+    <script src="./js/auth.js"></script>
     <script src="./js/reports.js"></script>
 </body>
 
