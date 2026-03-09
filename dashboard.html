@@ -31,7 +31,7 @@
     <nav class="sidebar-nav">
       <ul>
         <li class="nav-item">
-          <a href="./dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+          <a class="active" href="./dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
         </li>
         <li class="nav-item">
           <a href="./register.html"><i class="fas fa-plus-circle"></i> Registration</a>
@@ -63,11 +63,19 @@
   <!-- Top Bar -->
   <header class="topbar">
     <div class="topbar-left">
-      <h3>ParkEase - <small class="txt-muted">Attendant Dashboard</small></h3>
+      <h3>ParkEase - <span class="txt-muted font-sm">Attendant Dashboard</span></h3>
+    </div>
+    <div>
+       <input type="text" class="search-input" placeholder="Search..." id="searchInput"/>
+    </div>
+    <div class="display-block">
+      <span class="font-smaller font-bold">SHIFT TIMING:</span>
+      <span class="font-sm">8:00AM - 7:00PM</span>
     </div>
     <div class="topbar-right">
       <!-- Profile / Notifications -->
       <span class="date">17/March/2026 13:04</span>
+
       <button id="signout-btn">
         <i class="fas fa-sign-out text-yellow"></i>
       </button>
@@ -76,7 +84,7 @@
   <!-- Main Content -->
   <main class="main-content">
     <!-- Dashboard Sections -->
-    <h4 class="text-blue">Welcome Proscovia!</h4>
+    <!-- <h4 class="text-blue">Welcome Proscovia!</h4> -->
     <section class="dashboard-overview">
       <!-- Example Cards -->
       <article class="card">
@@ -103,10 +111,10 @@
     </section>
     <section class="quick-actions">
       <a href="./register.html" class="blue-btn shadow">
-        <i class="fas fa-add"></i> Vehicle Checkin
+        <i class="fas fa-plus-circle"></i> Register Arrival
       </a>
       <button class="blue-btn-outline shadow">
-        <i class="fas fa-shopping-cart"></i> Vehicle Checkout
+        <i class="fas fa-sign-out"></i> Vehicle Sign-out
       </button>
       <button class="blue-btn shadow">
         <i class="fas fa-print"></i> Print Daily Summary
@@ -136,7 +144,7 @@
             <td>08:15 AM</td>
             <td>UBD 123A</td>
             <td>Sedan</td>
-            <td class="center-align">Parked</td>
+            <td class="center-align"><span class="parked-badge"> Parked </span></td>
             <td class="center-align">
               <button class="action-btn">
                 <i class="fas fa-ellipsis-vertical"></i>
@@ -149,7 +157,7 @@
             <td>09:02 AM</td>
             <td>UAZ 456B</td>
             <td>SUV</td>
-            <td class="center-align">Exited</td>
+            <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
             <td class="center-align">
               <button class="action-btn">
                 <i class="fas fa-ellipsis-vertical"></i>
@@ -162,7 +170,7 @@
             <td>10:30 AM</td>
             <td>UAT 789C</td>
             <td>Truck</td>
-            <td class="center-align">Parked</td>
+            <td class="center-align"><span class="parked-badge"> Parked </span></td>
             <td class="center-align">
               <button class="action-btn">
                 <i class="fas fa-ellipsis-vertical"></i>
@@ -175,7 +183,7 @@
             <td>11:45 AM</td>
             <td>UBA 321D</td>
             <td>Motorcycle</td>
-            <td class="center-align">Exited</td>
+            <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
             <td class="center-align">
               <button class="action-btn">
                 <i class="fas fa-ellipsis-vertical"></i>
@@ -188,7 +196,7 @@
             <td>01:10 PM</td>
             <td>UBG 654E</td>
             <td>Van</td>
-            <td class="center-align">Parked</td>
+            <td class="center-align"><span class="parked-badge">Parked</span></td>
             <td class="center-align">
               <button class="action-btn">
                 <i class="fas fa-ellipsis-vertical"></i>

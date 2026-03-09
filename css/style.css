@@ -313,6 +313,9 @@ tbody tr:hover {
 .sidebar-nav ul li:hover a {
   color: #fb8515;
 }
+.active {
+  color: #fb8515;
+}
 .display-flex {
   display: flex;
   align-items: center;
@@ -767,3 +770,120 @@ padding-top: 0px !important;
   padding: 10px;
   border-radius: 5px;
 }
+
+.signed-out-badge {
+  background: #fb8515;
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: #042a4a;
+  font-size: 12px;
+}
+.parked-badge {
+  background: #042a4a;
+  padding: 5px 25px;
+  border-radius: 50px;
+  color: #fb8515;
+  font-size: 12px;
+}
+.display-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.font-bold{
+  font-weight: bold;
+}
+
+/* ---------------------------------------------
+   Responsive adjustments (tablet & mobile)
+   placed at the bottom as requested.  These
+   rules layer on top of the existing styles
+   without modifying the original declarations.
+--------------------------------------------- */
+
+/* general container tweaks */
+@media (max-width: 1200px) {
+  .reports-container,
+  .register-content {
+    padding: 10px;
+  }
+}
+
+/* tablet and smaller (<=768px) */
+@media (max-width: 768px) {
+  /* dashboard layout becomes single column */
+  .dash-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .sideBar-footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .topbar,
+  .main-content,
+  .footer {
+    grid-column: 1;
+  }
+
+  /* table controls and pagination adjustments */
+  .report-table-section .table-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .report-table-section .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* signout page stack columns */
+  .signout-page {
+    grid-template-columns: 1fr;
+  }
+  .receipt-preview {
+    max-width: 100%;
+  }
+
+  /* register page forms full width */
+  .register-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* keep upper headers vertical */
+  .upper-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .download-btns {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* small adjustments for buttons & text
+     to prevent overflow */
+  .btn-small {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  .date-selector .selected-day {
+    font-size: 0.6em;
+  }
+}
+
+/* desktop‑tablet range (>=768px) can keep
+   the same rules; the presence of the above
+   max‑width query ensures layout works on
+   smaller devices, and the original styles
+   already target larger screens. */
