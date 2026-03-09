@@ -748,3 +748,21 @@ padding-top: 0px !important;
   font-size: 12px;
   padding: 5px 10px;
 }
+
+.success {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 50%;
+}
+.text-bold {
+  font-weight: bold;
+}
+
+.nin-active {
+  background-color: #71a9d6;
+  padding: 10px;
+  border-radius: 5px;
+}
