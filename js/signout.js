@@ -53,7 +53,7 @@ const records = [
     arrival: "2026-03-08T10:11:00",
   },
 ];
-console.log(records);
+// console.log(records);
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("search-btn");
@@ -140,11 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // attach listener to the newly inserted confirm button
     document.getElementById("confirm-btn").addEventListener("click", () => {
-        let badge = document.getElementsByClassName("badge")[0];
-        badge.innerHTML = "Signed Out";
-        badge.classList.remove("font-sm");
-         badge.style.color = "yellow";
-        badge.style.backgroundColor = "green";
+      let badge = document.getElementsByClassName("badge")[0];
+      badge.innerHTML = "Signed Out";
+      badge.classList.remove("font-sm");
+      badge.style.color = "yellow";
+      badge.style.backgroundColor = "green";
       let names = document.getElementById("receiver-name");
       let phone = document.getElementById("receiver-phone");
       let nin = document.getElementById("receiver-nin");
@@ -163,16 +163,22 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         clearError("receiver-name");
-        if (!validatePhone(phone.value)) {  
-            showError("receiver-phone", "Please enter a valid Ugandan phone number (starting with +256 or 0, followed by 9 digits)");
-            return;
+        if (!validatePhone(phone.value)) {
+          showError(
+            "receiver-phone",
+            "Please enter a valid Ugandan phone number (starting with +256 or 0, followed by 9 digits)",
+          );
+          return;
         }
         clearError("receiver-phone");
         if (!validateNIN(nin.value)) {
-            showError("receiver-nin", "Please enter a valid NIN (2 letters followed by 8-10 alphanumeric characters and a final letter)");
-            return;
+          showError(
+            "receiver-nin",
+            "Please enter a valid NIN (2 letters followed by 8-10 alphanumeric characters and a final letter)",
+          );
+          return;
         }
-         clearError("receiver-nin");
+        clearError("receiver-nin");
       }
 
       // gather receiver form values
@@ -203,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <h5 class="text-blue">Receiver Information</h5>
             <p><i class="fas fa-user small-icon"></i><span>${!receiver.name.trim() ? record.driver : receiver.name}</span></p>
             <p><i class="fas fa-phone small-icon"></i> <span>${!receiver.phone.trim() ? record.phone : receiver.phone}</span></p>
-            <p><i class="fas fa-id-card small-icon"></i> <span>${!receiver.nin.trim() ? record.nin ?? "NAN" : receiver.nin}</span></p>
+            <p><i class="fas fa-id-card small-icon"></i> <span>${!receiver.nin.trim() ? (record.nin ?? "NAN") : receiver.nin}</span></p>
           </div>
           <div class="receiver-info">
             <h5 class="text-blue">Customer Information</h5>
@@ -241,6 +247,26 @@ function calculateFee(vehicleType, arrivalTime, signOutTime) {
   const isDay = hour >= 6 && hour < 19;
   const isShort = durationHrs < 3;
 
+  // const rates = {
+  //   Truck: { short: 2000, day: 5000, night: 10000 },
+  //   "Personal Car": { short: 2000, day: 3000, night: 2000 },
+  //   Taxi: { short: 2000, day: 3000, night: 2000 },
+  //   Coaster: { short: 3000, day: 4000, night: 2000 },
+  //   "Boda-boda": { short: 1000, day: 2000, night: 2000 },
+  // };
+
+  // const r = rates[vehicleType] || rates["Personal Car"];
+  const r = getVehicleRate(vehicleType);
+  const totalFee = isShort
+    ? r.short
+    : (isDay ? r.day : r.night) * Math.ceil(durationHrs);
+  return totalFee;
+  // return isShort ? r.short : (isDay ? r.day : r.night) * Math.ceil(durationHrs);
+}
+// console.log(calculateFee("Personal Car", new Date("2026-03-08 07:12:00"), new Date("2026-03-08 11:30:00")));
+
+function getVehicleRate(vehicleType) {
+  // debugger; // execution stops here when devTools is open
   const rates = {
     Truck: { short: 2000, day: 5000, night: 10000 },
     "Personal Car": { short: 2000, day: 3000, night: 2000 },
@@ -248,9 +274,5 @@ function calculateFee(vehicleType, arrivalTime, signOutTime) {
     Coaster: { short: 3000, day: 4000, night: 2000 },
     "Boda-boda": { short: 1000, day: 2000, night: 2000 },
   };
-
-  const r = rates[vehicleType] || rates["Personal Car"];
-
-  return isShort ? r.short : (isDay ? r.day : r.night) * Math.ceil(durationHrs);
+  return rates[vehicleType] || rates["Personal Car"];
 }
-// console.log(calculateFee("Personal Car", new Date("2026-03-08 07:12:00"), new Date("2026-03-08 11:30:00")));
