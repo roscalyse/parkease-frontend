@@ -61,7 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
   searchBtn.addEventListener("click", function () {
     // read text from the search input
     const query = document.getElementById("search-input").value.trim();
-
+    if (query === "") {
+      showError(
+        "search-section",
+        "Please enter a valid plate number or receipt number",
+      );
+      return;
+    }
+    clearError("search-section");
     // try to find a matching record in our mock dataset
     const record = records.find(
       (r) => r.plate === query || r.receipt === query,
