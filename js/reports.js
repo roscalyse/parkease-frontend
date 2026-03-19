@@ -8,92 +8,76 @@ const rowsPerPage = 5;
 let currentPage = 1;
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    // setupPagination();
-    setupSearch();
-
+  // setupPagination();
+  setupSearch();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const rows = document.querySelectorAll("#reportsTable tbody tr");
+  const pageButtons = document.querySelectorAll(".pageBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
-    const rows = document.querySelectorAll("#reportsTable tbody tr");
-    const pageButtons = document.querySelectorAll(".pageBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+  const totalPages = Math.ceil(rows.length / rowsPerPage);
 
-    const totalPages = Math.ceil(rows.length / rowsPerPage);
+  function showPage(page) {
+    currentPage = page;
 
-    function showPage(page) {
+    // 1. Handle Row Visibility
+    rows.forEach((row, index) => {
+      const start = (page - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      row.style.display = (index >= start && index < end) ? "" : "none";
+    });
 
-        currentPage = page;
-
-        rows.forEach((row, index) => {
-
-            const start = (page - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-
-            if (index >= start && index < end) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-
-        });
-
-    }
-
+    // 2. Handle Button Styling
     pageButtons.forEach((btn, index) => {
-
-        btn.addEventListener("click", () => {
-            showPage(index + 1);
-        });
-
+      if (index + 1 === currentPage) {
+        btn.classList.add("bg-blue", "text-white");
+      } else {
+        btn.classList.remove("bg-blue", "text-white");
+      }
     });
+  }
 
-    prevBtn.addEventListener("click", () => {
-
-        if (currentPage > 1) {
-            currentPage--;
-            showPage(currentPage);
-        }
-
+  // Event Listeners for Numbered Buttons
+  pageButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      showPage(index + 1);
     });
+  });
 
-    nextBtn.addEventListener("click", () => {
+  // Event Listeners for Prev/Next
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      showPage(currentPage - 1);
+    }
+  });
 
-        if (currentPage < totalPages) {
-            currentPage++;
-            showPage(currentPage);
-        }
+  nextBtn.addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      showPage(currentPage + 1);
+    }
+  });
 
-    });
-
-    showPage(1);
-
+  // Initialize first page
+  showPage(1);
 });
 
 // search function
-function setupSearch(){
-
+function setupSearch() {
   const input = document.getElementById("searchInput");
 
-  input.addEventListener("keyup", function(){
-
+  input.addEventListener("keyup", function () {
     const value = this.value.toLowerCase();
 
-    document.querySelectorAll("#reportsTable tbody tr")
-    .forEach(row => {
-
+    document.querySelectorAll("#reportsTable tbody tr").forEach((row) => {
       const text = row.innerText.toLowerCase();
 
       row.style.display = text.includes(value) ? "" : "none";
-
     });
-
   });
-
 }
-
 
 // function setupPagination() {
 

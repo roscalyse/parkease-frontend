@@ -142,7 +142,7 @@
   position: fixed; /* Fixes it to viewport */
   top: 0; /* Start at the top */
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
 }
 /* Dashboard Topbar */
 .topbar {
@@ -153,10 +153,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  left: 250px;
+  width: 100%;
+  z-index: 111;
 }
 .topbar-right .date {
   font-size: 12px;
   margin-right: 30px;
+}
+.topbar-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Main Content */
@@ -314,7 +325,7 @@ tbody tr:hover {
   color: #fb8515;
 }
 .active {
-  color: #fb8515;
+  color: #fb8515 !important;
 }
 .display-flex {
   display: flex;
@@ -337,8 +348,8 @@ hr {
 }
 
 /* register styles */
-.btn-inlign{
-padding-top: 0px !important;
+.btn-inlign {
+  padding-top: 0px !important;
 }
 .quick-tips {
   width: 300px;
@@ -604,22 +615,23 @@ padding-top: 0px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;          /* take full available width */
-  flex-wrap: wrap;      /* allow wrapping on narrow screens */
+  width: 100%; /* take full available width */
+  flex-wrap: wrap; /* allow wrapping on narrow screens */
   gap: 10px;
   margin-bottom: 20px;
   margin-right: 0;
 }
 .upper-header-section h2 {
   margin: 0;
-  flex: 1 1 auto;       /* allow heading to grow */
+  flex: 1 1 auto; /* allow heading to grow */
 }
 .download-btns {
   display: flex;
   gap: 8px;
-  flex: 0 0 auto;       /* keep buttons sized to content */
+  flex: 0 0 auto; /* keep buttons sized to content */
 }
-.pdf-btn, .csv-btn {
+.pdf-btn,
+.csv-btn {
   background: #042a4a;
   color: #fb8515;
   padding: 5px 10px;
@@ -635,16 +647,7 @@ padding-top: 0px !important;
 .csv-btn span {
   margin-left: 4px;
 }
-@media (max-width: 768px) {
-  .upper-header-section {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .download-btns {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
+
 .reports-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -790,10 +793,26 @@ padding-top: 0px !important;
   flex-direction: column;
   justify-content: center;
 }
-.font-bold{
+.font-bold {
   font-weight: bold;
 }
 
+#sideBar-toggler {
+  display: none;
+}
+.close {
+  margin-right: 0;
+}
+.close-container {
+  text-align: end;
+}
+.justify-content-end {
+  justify-content: end;
+}
+.close-container,
+#sidebar-toggler {
+  display: none;
+}
 /* ---------------------------------------------
    Responsive adjustments (tablet & mobile)
    placed at the bottom as requested.  These
@@ -809,24 +828,58 @@ padding-top: 0px !important;
   }
 }
 
-/* tablet and smaller (<=768px) */
-@media (max-width: 768px) {
-  /* dashboard layout becomes single column */
+@media (max-width: 900px) {
+  .close-container,
+  #sidebar-toggler {
+    display: block;
+  }
   .dash-body {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
   }
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
+  .topbar,
+  .main-content,
+  .footer {
+    grid-column: 1;
   }
-  .sideBar-footer {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+  .sidebar {
+    display: none;
+  }
+  .show {
+    display: block;
+    z-index: 1000;
+  }
+}
+/* tablet and smaller (<=768px) */
+@media (max-width: 768px) {
+  .close-container,
+  #sidebar-toggler {
+    display: block;
+  }
+  /* dashboard layout becomes single column */
+  .dash-body {
+    grid-template-columns: minmax(300px, 1fr);
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
+  }
+  .sidebar {
+    display: none;
+    /* min-height: 100vh; */
+  }
+  .show {
+    display: block;
+    z-index: 1000;
+  }
+
+  /* .sideBar-footer {
+  } */
+  .topbar {
+    /* flex-direction: column; */
+    gap: 20px;
+  }
+
+  .topbar-left button {
+    float: left;
   }
   .topbar,
   .main-content,
@@ -846,6 +899,10 @@ padding-top: 0px !important;
   .report-table-section .pagination {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .table-container {
+    overflow: scroll;
+    scroll-behavior: smooth;
   }
 
   /* signout page stack columns */
@@ -879,6 +936,49 @@ padding-top: 0px !important;
   }
   .date-selector .selected-day {
     font-size: 0.6em;
+  }
+  /* .footer-grp {
+    flex-direction: column;
+  } */
+  /* report card styles */
+  .revenue-cards .card.small {
+    flex: 0 1 200px;
+  }
+  .upper-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .download-btns {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .reports-header .header-text {
+    text-align: center;
+  }
+  .reports-header .filter-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reports-header .filter-date p {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-right .date {
+    display: none;
+  }
+  .topbar-left {
+    /* display: none; */
+    font-size: 0.8em;
+    text-align: center;
+  }
+  .revenue-cards .card.small {
+    flex: 1 1 300px;
+  }
+  .footer-grp {
+    flex-direction: column;
   }
 }
 

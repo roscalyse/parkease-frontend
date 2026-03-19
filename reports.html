@@ -20,7 +20,10 @@
 
 <body class="dash-body">
     <!-- sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close" id="close-btn">X</button>
+        </div>
         <header class="sidebar-header">
             <div class="display-flex">
                 <img src="./assets/parking-logo-transparent.png" alt="" class="dashboard-logo" />
@@ -42,10 +45,10 @@
                 <li class="nav-item">
                     <a href="#"><i class="fas fa-history"></i> History</a>
                 </li>
-                <li>
-                    <a href="./reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a>
+                <li class="nav-item">
+                    <a href="./reports.html" class="active"><i class="fa-solid fa-chart-column"></i> Reports</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#"><i class="fas fa-gear"></i> Settings</a>
                 </li>
             </ul>
@@ -62,6 +65,8 @@
     </aside>
     <!-- Top Bar -->
     <header class="topbar">
+        <button id="sidebar-toggler" class="bg-blue"><i class="fas fa-bars text-yellow"></i></button>
+
         <div class="topbar-left">
             <h3>ParkEase - <small class="txt-muted">ADMIN CONTROL PANEL</small></h3>
         </div>
@@ -125,77 +130,79 @@
                     <div>
                         <h5 class="text-blue">All Signed-out Vehicles</h5>
                     </div>
-                    <input type="text" class="search-input" placeholder="Search plate or receipt..." id="searchInput"/>
+                    <input type="text" class="search-input" placeholder="Search plate or receipt..." id="searchInput" />
+                </div>
+                <div class="table-container">
+                    <table class="signed-out" id="reportsTable">
+                        <thead class="bg-blue">
+                            <tr>
+                                <th>RECEIPT #</th>
+                                <th>PLATE #</th>
+                                <th>IN-TIME</th>
+                                <th>OUT-TIME</th>
+                                <th>DURATION</th>
+                                <th>FEE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#PE-98231</td>
+                                <td>KAA 123X</td>
+                                <td>08:15 AM</td>
+                                <td>05:30 PM</td>
+                                <td>9h 15m</td>
+                                <td>$15.00</td>
+                            </tr>
+                            <tr>
+                                <td>#PE-98232</td>
+                                <td>KCB 776L</td>
+                                <td>09:00 AM</td>
+                                <td>11:30 AM</td>
+                                <td>2h 30m</td>
+                                <td>$5.00</td>
+                            </tr>
+                            <tr>
+                                <td>#PE-98233</td>
+                                <td>KDD 001A</td>
+                                <td>07:45 AM</td>
+                                <td>06:15 PM</td>
+                                <td>10h 30m</td>
+                                <td class="text-yellow">DISCOUNT $12.50</td>
+                            </tr>
+                            <tr>
+                                <td>#PE-98234</td>
+                                <td>KBA 999Z</td>
+                                <td>11:20 AM</td>
+                                <td>02:45 PM</td>
+                                <td>3h 25m</td>
+                                <td>$8.00</td>
+                            </tr>
+                            <tr>
+                                <td>#PE-98235</td>
+                                <td>KBX 442W</td>
+                                <td>06:00 AM</td>
+                                <td>08:00 PM</td>
+                                <td>14h 00m</td>
+                                <td>$25.00</td>
+                            </tr>
+                            <tr>
+                                <td>#PE-98236</td>
+                                <td>KBX 492W</td>
+                                <td>07:00 AM</td>
+                                <td>09:00 PM</td>
+                                <td>14h 00m</td>
+                                <td>$25.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-right"><strong>Daily Grand Total:</strong></td>
+                                <td><strong>$1,870.00</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
 
-                <table class="signed-out" id="reportsTable">
-                    <thead class="bg-blue">
-                        <tr>
-                            <th>RECEIPT #</th>
-                            <th>PLATE #</th>
-                            <th>IN-TIME</th>
-                            <th>OUT-TIME</th>
-                            <th>DURATION</th>
-                            <th>FEE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>#PE-98231</td>
-                            <td>KAA 123X</td>
-                            <td>08:15 AM</td>
-                            <td>05:30 PM</td>
-                            <td>9h 15m</td>
-                            <td>$15.00</td>
-                        </tr>
-                        <tr>
-                            <td>#PE-98232</td>
-                            <td>KCB 776L</td>
-                            <td>09:00 AM</td>
-                            <td>11:30 AM</td>
-                            <td>2h 30m</td>
-                            <td>$5.00</td>
-                        </tr>
-                        <tr>
-                            <td>#PE-98233</td>
-                            <td>KDD 001A</td>
-                            <td>07:45 AM</td>
-                            <td>06:15 PM</td>
-                            <td>10h 30m</td>
-                            <td class="text-yellow">DISCOUNT $12.50</td>
-                        </tr>
-                        <tr>
-                            <td>#PE-98234</td>
-                            <td>KBA 999Z</td>
-                            <td>11:20 AM</td>
-                            <td>02:45 PM</td>
-                            <td>3h 25m</td>
-                            <td>$8.00</td>
-                        </tr>
-                        <tr>
-                            <td>#PE-98235</td>
-                            <td>KBX 442W</td>
-                            <td>06:00 AM</td>
-                            <td>08:00 PM</td>
-                            <td>14h 00m</td>
-                            <td>$25.00</td>
-                        </tr>
-                        <tr>
-                            <td>#PE-98236</td>
-                            <td>KBX 492W</td>
-                            <td>07:00 AM</td>
-                            <td>09:00 PM</td>
-                            <td>14h 00m</td>
-                            <td>$25.00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5" class="text-right"><strong>Daily Grand Total:</strong></td>
-                            <td><strong>$1,870.00</strong></td>
-                        </tr>
-                    </tfoot>
-                </table>
                 <div class="pagination">
                     <button class="blue-btn-outline btn-small" id="prevBtn">Previous</button>
                     <button class="btn-small bg-blue text-white pageBtn">1</button>
@@ -223,6 +230,24 @@
     </footer>
     <script src="./js/auth.js"></script>
     <script src="./js/reports.js"></script>
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const sidebar_btn = document.getElementById("sidebar-toggler");
+        const close_btn = document.getElementById("close-btn");
+        if (sidebar_btn) {
+            sidebar_btn.addEventListener("click", () => {
+                sidebar.classList.toggle("show");
+            })
+        }
+        if (close_btn) {
+            close_btn.addEventListener("click", () => {
+                sidebar.classList.remove("show");
+            })
+        }
+
+
+
+    </script>
 </body>
 
 </html>
