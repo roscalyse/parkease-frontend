@@ -142,6 +142,7 @@
   position: fixed; /* Fixes it to viewport */
   top: 0; /* Start at the top */
   left: 0;
+  z-index: 1000;
   min-height: 100vh;
 }
 /* Dashboard Topbar */
@@ -152,6 +153,7 @@
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
   align-items: center;
   position: sticky;
   top: 0;
@@ -163,7 +165,8 @@
   font-size: 12px;
   margin-right: 30px;
 }
-.topbar-left {
+.topbar-left,
+.middle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -355,10 +358,11 @@ hr {
   width: 300px;
   box-shadow: 0 0 5px rgba(4, 42, 74, 0.75);
   padding-bottom: 10px;
-  position: fixed;
+  position: sticky;
   bottom: 0;
-  right: 0;
-  z-index: 1000;
+  left: 0;
+  justify-self: end; /* Align item to the right */
+  z-index: 1;
   background: white;
   border-radius: 10px;
   font-size: 0.6em;
@@ -560,6 +564,7 @@ hr {
   border-radius: 20px;
   padding: 5px 8px;
   box-shadow: 2px 2px 5px rgba(23, 22, 22, 0.5);
+  white-space: nowrap;
 }
 .light-bg {
   background: #83abcd;
@@ -780,6 +785,7 @@ hr {
   border-radius: 50px;
   color: #042a4a;
   font-size: 12px;
+  white-space: nowrap;
 }
 .parked-badge {
   background: #042a4a;
@@ -813,6 +819,20 @@ hr {
 #sidebar-toggler {
   display: none;
 }
+.new-btn {
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+.new-btn:hover {
+  border-radius: 20px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
 /* ---------------------------------------------
    Responsive adjustments (tablet & mobile)
    placed at the bottom as requested.  These
@@ -829,6 +849,10 @@ hr {
 }
 
 @media (max-width: 900px) {
+  /* Main Content */
+  .main-content {
+    padding: 10px;
+  }
   .close-container,
   #sidebar-toggler {
     display: block;
@@ -848,6 +872,10 @@ hr {
   .show {
     display: block;
     z-index: 1000;
+  }
+  /* signout  styles */
+  .signout-page {
+    padding: 0px;
   }
 }
 /* tablet and smaller (<=768px) */
@@ -966,19 +994,82 @@ hr {
 }
 
 @media (max-width: 480px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
   .topbar-right .date {
     display: none;
   }
   .topbar-left {
-    /* display: none; */
     font-size: 0.8em;
     text-align: center;
+    text-wrap: wrap;
   }
   .revenue-cards .card.small {
     flex: 1 1 300px;
   }
   .footer-grp {
     flex-direction: column;
+  }
+  /* search bar for signout */
+  .search-section {
+    width: 100%;
+  }
+  /* Main Content */
+  .main-content {
+    padding: 10px;
+  }
+  /* signout  styles */
+  .signout-page {
+    padding: 0px;
+  }
+  .arrival-header {
+    flex-direction: column;
+  }
+  .arrival-header a {
+    align-self: end;
+  }
+  .btn-sm {
+    width: 50% !important;
+  }
+  /* quick action styles */
+  .quick-actions {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .dashboard-overview {
+    gap: 10px;
+  }
+  .dashboard-overview .card {
+    padding: 10px 20px;
+    flex: 1 1 200px;
+  }
+  .middle {
+    display: flex;
+    gap: 10px;
+    /* flex-basis: 100%; */
+    order: 3;
+  }
+  .topbar-left {
+    order: 1;
+  }
+  .topbar-right {
+    order: 2;
+  }
+}
+@media (max-width: 360px) {
+  .middle {
+    display: flex;
+    gap: 8px;
+    /* flex-basis: 100%; */
+    order: 3;
+  }
+  .first {
+    order: 2;
+  }
+  .last {
+    order: 1;
   }
 }
 

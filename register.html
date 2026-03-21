@@ -23,7 +23,10 @@
 
 <body class="dash-body">
     <!-- sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close" id="close-btn">X</button>
+        </div>
         <header class="sidebar-header">
             <div class="display-flex">
                 <img src="./assets/parking-logo-transparent.png" alt="" class="dashboard-logo" />
@@ -37,7 +40,7 @@
                     <a href="./dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./register.html"><i class="fas fa-plus-circle"></i> Registration</a>
+                    <a href="./register.html" class="active"><i class="fas fa-plus-circle"></i> Registration</a>
                 </li>
                 <li class="nav-item">
                     <a href="./signout.html"><i class="fas fa-car"></i> Out-Vehicle</a>
@@ -45,10 +48,10 @@
                 <li class="nav-item">
                     <a href="#"><i class="fas fa-history"></i> History</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="./reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#"><i class="fas fa-gear"></i> Settings</a>
                 </li>
             </ul>
@@ -65,35 +68,34 @@
     </aside>
     <!-- Top Bar -->
     <header class="topbar">
+        <!-- button to toggle sidebar visibility on small screens -->
+        <button id="sidebar-toggler" class="bg-blue"><i class="fas fa-bars text-yellow"></i></button>
         <div class="topbar-left">
-            <h3>ParkEase - <small class="txt-muted text">Vehicle Registration</small></h3>
+            <h3>ParkEase - <small class="txt-muted text">Vehicle Check-in</small></h3>
         </div>
         <div class="topbar-right">
             <!-- Profile / Notifications -->
             <span class="date">17/March/2026 13:04</span>
-            <a href=""><i class="fas fa-sign-out text-yellow"></i></a>
+            <button id="signout-btn">
+                <i class="fas fa-sign-out text-yellow"></i>
+            </button>
         </div>
     </header>
     <!-- Main Content -->
     <main class="main-content relative">
-        <div class="quick-tips">
-            <h4 class="italic bg-blue text-yellow"><i class="fas fa-lightbulb"></i>Quick Tips</h4>
-            <ul>
-                <li>Use Tab to jump between fields</li>
-                <li>NIN is mandatory for all Motocycles</li>
-                <li>Double check plate before printing</li>
-            </ul>
-        </div>
         <div class="register-message" id="register-message"></div>
         <!-- Dashboard Sections -->
         <div class="register-content">
 
             <!-- EXISTING CUSTOMER ENTRY -->
             <div class="card bordered">
-                <h3 class="text-center text-blue">Vehicle Checkin</h3>
+                <h3 class="text-center text-blue">Vehicle Checkin <br> <span
+                        class="font-sm italic text-center text-yellow">If new vehicle or new Customer, register them
+                        first</span></h3>
                 <form id="register-entry">
                     <div class="form-group mb-15">
-                        <label class=" text-blue"><i class="fas fa-user small-icon"></i> Customer</label>
+                        <label class="text-blue mb-15"><i class="fas fa-user small-icon"></i> Customer <a
+                                href="#customer-fields" class="login-btn new-btn font-smaller">New</a></label>
                         <select class="form-select" name="customer" id="customer-id">
                             <option value=" ">Select Customer</option>
                             <div class="customer-options" id="customer-options"></div>
@@ -101,17 +103,19 @@
                     </div>
 
                     <div class="form-group mb-15">
-                        <label class=" text-blue"><i class="fas fa-car small-icon"></i> Vehicle </label>
+                        <label class="mb-15 text-blue"><i class="fas fa-car small-icon"></i> Vehicle <a
+                                href="#vehicle-fields" class="login-btn font-smaller new-btn">New</a></label>
                         <select class="form-select" name="vehicle" id="vehicle-id">
                             <option value="">Select Vehicle</option>
                             <div class="vehicle-options" id="vehicle-options"></div>
                         </select>
                     </div>
-                    <div class="display-flex justify-content-between mt-15">
-                        <button type="submit" class="blue-btn btn-inlign"><i class="fas fa-print"></i> <span>Register
+                    <div class="display-flex flex-wrap justify-content-between mt-15 mb-15">
+                        <button type="submit" class="blue-btn btn-inlign mt-15"><i class="fas fa-print"></i>
+                            <span class="nowrap">Register
                                 &AMP; Print
                                 Receipt</span></button>
-                        <button type="reset" class="blue-btn-outline" id="cancel-btn">Cancel</button>
+                        <button type="reset" class="blue-btn-outline mt-15" id="cancel-btn">Cancel</button>
                     </div>
 
                 </form>
@@ -137,7 +141,7 @@
 
 
             <!-- NEW CUSTOMER -->
-            <div class="card bordered">
+            <div class="card bordered" id="customer-fields">
                 <h3 class="text-blue text-center"><i class="fas fa-user"></i> New Customer </i></h3>
                 <form id="customer-form" class="">
                     <div class="form-group mb-15">
@@ -160,8 +164,9 @@
 
                     </div>
                     <div class="mb-15">
-                    <input type="checkbox" name="bodaCheck" id="bodaCheck" value="1"><label for="bodaCheck">Boda Boda
-                        Driver</label>
+                        <input type="checkbox" name="bodaCheck" id="bodaCheck" value="1"><label for="bodaCheck">Boda
+                            Boda
+                            Driver</label>
                     </div>
 
                     <div class="form-group mb-15" id="ninField">
@@ -170,13 +175,14 @@
                             id="customerNIN">
                     </div>
 
-                    <button type="submit" class="login-btn btn-sm">Add Customer</button>
+                    <button type="submit" class="login-btn btn-sm btn-inlign"><i class="fas fa-plus"></i>
+                        Customer</button>
                 </form>
             </div>
 
 
             <!-- NEW VEHICLE -->
-            <div class="card bordered">
+            <div class="card bordered" id="vehicle-fields">
                 <h3 class="text-center text-blue"><i class="fas fa-car"></i> New Vehicle </h3>
                 <form id="vehicle-form" class="">
                     <div class="form-group mb-15">
@@ -215,12 +221,20 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="login-btn btn-sm">Add Vehicle</button>
+                    <button type="submit" class="login-btn btn-sm btn-inlign"><i class="fas fa-plus"></i>
+                        Vehicle</button>
                 </form>
             </div>
 
         </div>
-
+        <div class="quick-tips">
+            <h4 class="italic bg-blue text-yellow"><i class="fas fa-lightbulb"></i>Quick Tips</h4>
+            <ul>
+                <li>Use Tab to jump between fields</li>
+                <li>NIN is mandatory for all Motocycles</li>
+                <li>Double check plate before printing</li>
+            </ul>
+        </div>
     </main>
     <!-- Footer -->
     <footer class="footer">
@@ -240,7 +254,21 @@
     <script src="./js/auth.js"></script>
     <script src="./js/validation.js"></script>
     <script src="./js/register.js"></script>
-
+    <script type="text/javascript">
+        const sidebar = document.getElementById("sidebar");
+        const sidebar_btn = document.getElementById("sidebar-toggler");
+        const close_btn = document.getElementById("close-btn");
+        if (sidebar_btn) {
+            sidebar_btn.addEventListener("click", () => {
+                sidebar.classList.toggle("show");
+            })
+        }
+        if (close_btn) {
+            close_btn.addEventListener("click", () => {
+                sidebar.classList.remove("show");
+            })
+        }
+    </script>
 </body>
 
 </html>

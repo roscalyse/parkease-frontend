@@ -20,7 +20,10 @@
 
 <body class="dash-body">
     <!-- sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
+        <div class="close-container">
+            <button class="close" id="close-btn">X</button>
+        </div>
         <header class="sidebar-header">
             <div class="display-flex">
                 <img src="./assets/parking-logo-transparent.png" alt="" class="dashboard-logo" />
@@ -37,15 +40,15 @@
                     <a href="./register.html"><i class="fas fa-plus-circle"></i> Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./signout.html"><i class="fas fa-car"></i> Out-Vehicle</a>
+                    <a href="./signout.html" class="active"><i class="fas fa-car"></i> Out-Vehicle</a>
                 </li>
                 <li class="nav-item">
                     <a href="#"><i class="fas fa-history"></i> History</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="./reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="#"><i class="fas fa-gear"></i> Settings</a>
                 </li>
             </ul>
@@ -62,8 +65,10 @@
     </aside>
     <!-- Top Bar -->
     <header class="topbar">
+        <!-- button to toggle sidebar visibility on small screens -->
+        <button id="sidebar-toggler" class="bg-blue"><i class="fas fa-bars text-yellow"></i></button>
         <div class="topbar-left">
-            <h3>ParkEase - <small class="txt-muted">Attendant Dashboard</small></h3>
+            <h3>ParkEase - <small class="txt-muted">Vehicle Sign-Out</small></h3>
         </div>
         <div class="topbar-right">
             <!-- Profile / Notifications -->
@@ -80,7 +85,7 @@
             <div class="search-section" id="search-section">
                 <input type="text" placeholder="Search Receipt by ID or Plate Number (e.g. UAX 123A)"
                     id="search-input" />
-                <button id="search-btn" class="blue-btn">Search</button>
+                <button id="search-btn" class="blue-btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
 
@@ -88,7 +93,7 @@
             <div class="details">
                 <div class="display-flex">
                     <h4 class="text-blue"><i class="fas fa-car small-icon"></i>Vehicle &amp; Arrival Details</h4>
-                    <span class="badge font-sm" id="badge">Pending Sign-Out</span>
+                    <span class="badge font-sm text-center" id="badge">Pending Sign-Out</span>
                 </div>
                 <div class="detail-row"><label>Driver Name</label><span></span></div>
                 <div class="detail-row"><label>Vehicle Type</label><span></span></div>
@@ -105,6 +110,8 @@
 
                 <h4 class="text-blue text-center"><i class="fas fa-user small-icon"></i> Receiver Information
                     <hr>
+                    <span class="font-sm italic text-center text-yellow">Leave the fields empty if owner is
+                        reciever</span>
                 </h4>
                 <form class="receiver-form">
                     <input type="text" placeholder="Receiver full name" class="input-field" />
@@ -205,6 +212,21 @@
     <script src="./js/auth.js"></script>
     <script src="./js/validation.js"></script>
     <script src="./js/signout.js"></script>
+    <script type="text/javascript">
+        const sidebar = document.getElementById("sidebar");
+        const sidebar_btn = document.getElementById("sidebar-toggler");
+        const close_btn = document.getElementById("close-btn");
+        if (sidebar_btn) {
+            sidebar_btn.addEventListener("click", () => {
+                sidebar.classList.toggle("show");
+            })
+        }
+        if (close_btn) {
+            close_btn.addEventListener("click", () => {
+                sidebar.classList.remove("show");
+            })
+        }
+    </script>
 </body>
 
 </html>

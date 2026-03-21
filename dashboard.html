@@ -20,7 +20,10 @@
 
 <body class="dash-body">
   <!-- sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
+    <div class="close-container">
+      <button class="close" id="close-btn">X</button>
+    </div>
     <header class="sidebar-header">
       <div class="display-flex">
         <img src="./assets/parking-logo-transparent.png" alt="" class="dashboard-logo" />
@@ -31,7 +34,7 @@
     <nav class="sidebar-nav">
       <ul>
         <li class="nav-item">
-          <a class="active" href="./dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+          <a href="./dashboard.html" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
         </li>
         <li class="nav-item">
           <a href="./register.html"><i class="fas fa-plus-circle"></i> Registration</a>
@@ -42,10 +45,10 @@
         <li class="nav-item">
           <a href="#"><i class="fas fa-history"></i> History</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="./reports.html"><i class="fa-solid fa-chart-column"></i> Reports</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="#"><i class="fas fa-gear"></i> Settings</a>
         </li>
       </ul>
@@ -55,24 +58,28 @@
         <img src="./assets/kora_profile.jpeg" alt="">
       </div>
       <div>
-        <h5 class=" mb-0 mt-0">Jane Laker</h5>
-        <span class="font-smaller italic">Attendant</span>
+        <h5 class="mb-0 mt-0" id="user-name">Jane Laker</h5>
+        <span class="font-smaller italic" id="user-role">Attendant</span>
       </div>
     </div>
   </aside>
   <!-- Top Bar -->
   <header class="topbar">
-    <div class="topbar-left">
+    <!-- button to toggle sidebar visibility on small screens -->
+    <button id="sidebar-toggler" class="bg-blue"><i class="fas fa-bars text-yellow"></i></button>
+    <div class="topbar-left first">
       <h3>ParkEase - <span class="txt-muted font-sm">Attendant Dashboard</span></h3>
     </div>
-    <div>
-       <input type="text" class="search-input" placeholder="Search..." id="searchInput"/>
+    <div class="middle">
+      <div>
+        <input type="text" class="search-input" placeholder="Search..." id="searchInput" />
+      </div>
+      <div class="display-block">
+        <span class="font-smaller font-bold text-blue">SHIFT TIMING:</span>
+        <span class="font-sm">8:00AM - 7:00PM</span>
+      </div>
     </div>
-    <div class="display-block">
-      <span class="font-smaller font-bold">SHIFT TIMING:</span>
-      <span class="font-sm">8:00AM - 7:00PM</span>
-    </div>
-    <div class="topbar-right">
+    <div class="topbar-right last">
       <!-- Profile / Notifications -->
       <span class="date">17/March/2026 13:04</span>
 
@@ -127,84 +134,86 @@
         <a href="" class="blue-btn-outline btn-small shadow">View all Activity</a>
       </div>
 
-      <table class="dashboard-table">
-        <thead>
-          <tr class="bg-blue">
-            <th>SN</th>
-            <th>Time</th>
-            <th>Plate Number</th>
-            <th>Vehicle Type</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="center-align">1</td>
-            <td>08:15 AM</td>
-            <td>UBD 123A</td>
-            <td>Sedan</td>
-            <td class="center-align"><span class="parked-badge"> Parked </span></td>
-            <td class="center-align">
-              <button class="action-btn">
-                <i class="fas fa-ellipsis-vertical"></i>
-              </button>
-            </td>
-          </tr>
+      <div class="table-container">
+        <table class="dashboard-table">
+          <thead>
+            <tr class="bg-blue">
+              <th>SN</th>
+              <th>Time</th>
+              <th>Plate Number</th>
+              <th>Vehicle Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center-align">1</td>
+              <td>08:15 AM</td>
+              <td>UBD 123A</td>
+              <td>Sedan</td>
+              <td class="center-align"><span class="parked-badge"> Parked </span></td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
 
-          <tr>
-            <td class="center-align">2</td>
-            <td>09:02 AM</td>
-            <td>UAZ 456B</td>
-            <td>SUV</td>
-            <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
-            <td class="center-align">
-              <button class="action-btn">
-                <i class="fas fa-ellipsis-vertical"></i>
-              </button>
-            </td>
-          </tr>
+            <tr>
+              <td class="center-align">2</td>
+              <td>09:02 AM</td>
+              <td>UAZ 456B</td>
+              <td>SUV</td>
+              <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
 
-          <tr>
-            <td class="center-align">3</td>
-            <td>10:30 AM</td>
-            <td>UAT 789C</td>
-            <td>Truck</td>
-            <td class="center-align"><span class="parked-badge"> Parked </span></td>
-            <td class="center-align">
-              <button class="action-btn">
-                <i class="fas fa-ellipsis-vertical"></i>
-              </button>
-            </td>
-          </tr>
+            <tr>
+              <td class="center-align">3</td>
+              <td>10:30 AM</td>
+              <td>UAT 789C</td>
+              <td>Truck</td>
+              <td class="center-align"><span class="parked-badge"> Parked </span></td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
 
-          <tr>
-            <td class="center-align">4</td>
-            <td>11:45 AM</td>
-            <td>UBA 321D</td>
-            <td>Motorcycle</td>
-            <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
-            <td class="center-align">
-              <button class="action-btn">
-                <i class="fas fa-ellipsis-vertical"></i>
-              </button>
-            </td>
-          </tr>
+            <tr>
+              <td class="center-align">4</td>
+              <td>11:45 AM</td>
+              <td>UBA 321D</td>
+              <td>Motorcycle</td>
+              <td class="center-align"><span class="signed-out-badge">Signed-out</span></td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
 
-          <tr>
-            <td class="center-align">5</td>
-            <td>01:10 PM</td>
-            <td>UBG 654E</td>
-            <td>Van</td>
-            <td class="center-align"><span class="parked-badge">Parked</span></td>
-            <td class="center-align">
-              <button class="action-btn">
-                <i class="fas fa-ellipsis-vertical"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <td class="center-align">5</td>
+              <td>01:10 PM</td>
+              <td>UBG 654E</td>
+              <td>Van</td>
+              <td class="center-align"><span class="parked-badge">Parked</span></td>
+              <td class="center-align">
+                <button class="action-btn">
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
   <!-- Footer -->
@@ -222,7 +231,23 @@
     <p class="text-center text-blue">&copy; 2026 ParkEase Dashboard. All rights reserved.</p>
     </div>
   </footer>
+  <script src="./js/auth.js"></script>
   <script src="./js/dashboard.js"></script>
+  <script type="text/javascript">
+    const sidebar = document.getElementById("sidebar");
+    const sidebar_btn = document.getElementById("sidebar-toggler");
+    const close_btn = document.getElementById("close-btn");
+    if (sidebar_btn) {
+      sidebar_btn.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+      })
+    }
+    if (close_btn) {
+      close_btn.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+      })
+    }
+  </script>
 </body>
 
 </html>

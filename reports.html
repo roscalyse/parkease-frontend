@@ -58,13 +58,14 @@
                 <img src="./assets/kora_profile.jpeg" alt="">
             </div>
             <div>
-                <h5 class=" mb-0 mt-0">John Doe</h5>
-                <span class="font-smaller italic">Admin</span>
+                <h5 class=" mb-0 mt-0" id="user-name">John Doe</h5>
+                <span class="font-smaller italic" id="user-role">Admin</span>
             </div>
         </div>
     </aside>
     <!-- Top Bar -->
     <header class="topbar">
+        <!-- button to toggle sidebar visibility on small screens -->
         <button id="sidebar-toggler" class="bg-blue"><i class="fas fa-bars text-yellow"></i></button>
 
         <div class="topbar-left">
@@ -230,7 +231,7 @@
     </footer>
     <script src="./js/auth.js"></script>
     <script src="./js/reports.js"></script>
-    <script>
+    <script type="text/javascript">
         const sidebar = document.getElementById("sidebar");
         const sidebar_btn = document.getElementById("sidebar-toggler");
         const close_btn = document.getElementById("close-btn");
@@ -244,9 +245,6 @@
                 sidebar.classList.remove("show");
             })
         }
-
-
-
     </script>
 </body>
 
